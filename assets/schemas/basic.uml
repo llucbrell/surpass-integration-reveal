@@ -1,0 +1,28 @@
+@startuml
+skinparam packageStyle cloud
+title Context Diagram
+rectangle "Hospital" as hosp{
+rectangle "Genes System"{
+database "Database" as db {
+folder f1 as "Patient Data" {
+}
+}
+db <-d-> [Genes UI]
+}
+
+rectangle "Integration layer" as fhibi {
+[Fhirbilina web App]  #99FF99
+}
+
+db <-r-> [Fhirbilina web App]
+:Clinician: <-l-> [Genes UI] : Daily work
+:Clinician: -l-> [Fhirbilina web App] : Passport Management
+}
+
+cloud "SurPass Platform" {
+[Fhirbilina web App] <-r-> [Fhir Server] : "GET, POST,.."
+[Fhir Server] -d- [Web UI]
+:Clinician: -l-> [Web UI] : Passport Review and Confirmation
+
+}
+@enduml

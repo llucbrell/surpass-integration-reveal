@@ -1,0 +1,29 @@
+@startuml
+rectangle "FHIR Integration Strategies" as FIS
+rectangle "Connection Architectures" as CA
+rectangle "Point-to-Point" as P2P
+rectangle "Integration Platform" as IP
+rectangle "Hybrid" as H
+rectangle "Data Exchange Mechanisms" as DEM
+rectangle "API-Based" as API
+rectangle "Event-Driven" as ED
+rectangle "Subscription-Based" as SB
+rectangle "Polling" as PLL
+rectangle "Context-Aware Clinical Integration" as CACI
+rectangle "CDS Hooks" as CDS
+
+FIS -- CA
+FIS -- DEM
+FIS -- CACI
+
+CA -- P2P
+CA -- IP
+CA -- H
+
+DEM -- API
+DEM -- ED
+DEM -- SB
+DEM -- PLL
+
+CACI -- CDS
+@enduml

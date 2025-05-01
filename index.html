@@ -66,20 +66,21 @@
 
   <div style="font-size: 0.8em;">
     <ul>
+      
       <li class="fragment">
-       Starting point 
-      </li>
-      <li class="fragment">
-       Integration strategies
+       Integration Strategies
       </li>
       <li class="fragment">
        Challenges
       </li>
       <li class="fragment">
+        System Architecture 
+       </li>
+      <li class="fragment">
        Demo
       </li>
       <li class="fragment">
-       Lessons learned
+       Lessons Learned
       </li>
     </ul>
   </div>
@@ -92,57 +93,130 @@
       
 
       </section>
-<!-- Vertical Slides: Tomcat Information -->
-<section>
-    <section>
-        <h2>Starting Point</h2>
-        <p>The planification of the project was made trying to accomplish some specifications</p>
-        <div style="font-size: 0.8em;">
-            <ol>
-                <li>
-                    Must transfer the most number of variables possible to elaborate the SurPass
-                </li>
-                <li>
-                    Must be easy to develop
-                </li>
-            </ol>
-        </div>
-    </section>
-
-
- <section id="">
-                <h3>The origins of the project</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                       The use case of the project was
-                    </p>
-                </div>
-  </section>
- <section id="">
-                <h3>The structure of our system</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                       
-                    </p>
-                    <a href="" target="_blank">Final structure</a>
-                </div>
-  </section>
 
 
 
-  </section>
-
-
-<!-- Vertical Slides: Tomcat Information -->
 <section>
 <section id="">
                 <h3>Integration Estrategies</h3>
                 <div style="font-size: 0.9em;">
-                    <p class="">
-                      The final design of the project
-                    </p>
+                    <small>
+                      <p class="">
+                        To get a litle context, we briefly see these integration concepts
+                      </p>
+                    </small>
+                    <img src="./assets/imgs/integration_strat.png" style="width: 100%;" />
+                  
                 </div>
   </section>
+
+
+  <section id="connection-architectures">
+    <h3>Connection Architectures</h3>
+    <div style="font-size: 0.9em;">
+        <ul>
+            <li><strong>Point-to-Point:</strong> Direct links between systems. Simple at first, but scales poorly.</li>
+            <li><strong>Integration Platform:</strong> Centralized middleware (ESB/iPaaS) manages routing, transformation, and protocol bridging.</li>
+            <li><strong>Hybrid:</strong> Mix of point-to-point, platform, and legacy strategies depending on the use case and system maturity.</li>
+        </ul>
+    </div>
+</section>
+
+
+<section id="data-exchange">
+  <h3>Data Exchange Mechanisms</h3>
+  <div style="font-size: 0.9em;">
+      <ul>
+          <li><strong>API-based:</strong> RESTful FHIR APIs expose clinical and administrative data using standardized resources.</li>
+          <li><strong>Polling:</strong> Clients periodically query the FHIR server to check for new or updated data.</li>
+          <li><strong>Event-driven:</strong> Systems react to specific actions in other systems (e.g., a new Observation), using notifications or messaging queues.</li>
+          <li><strong>Subscription-based:</strong> Clients subscribe to changes on resources. The FHIR server pushes updates via channels like REST hooks or WebSockets.</li>
+      </ul>
+  </div>
+</section>
+
+
+<section id="clinical-integration">
+  <h3>Context-aware Clinical Integration</h3>
+  <div style="font-size: 0.9em;">
+      <ul>
+          <li><strong>CDS Hooks:</strong> Integrates clinical decision support services into EHR workflows.</li>
+      </ul>
+  </div>
+</section>
+
+<section id="our-integration-model">
+  <h3>Our Integration Model</h3>
+  <div style="font-size: 0.9em;">
+      <ul>
+          <li><strong>Custom Middleware App:</strong> Acts as a bridge between our internal EHR and the external FHIR server.</li>
+          <li><strong>Polling Mechanism:</strong> The middleware regularly queries the external FHIR API for new or updated data.</li>
+          <li><strong>API-based Access:</strong> All data exchange follows the RESTful FHIR standard.</li>
+          <li><strong>Manual Trigger:</strong> The request to check for data is typically initiated when the physician opens the app.</li>
+      </ul>
+  </div>
+</section>
+
+
+
+
+  <section id="point-to-point">
+    <h3>Point-to-Point Integration</h3>
+    <div style="font-size: 0.9em;">
+        <p>
+            Involves directly connecting each system that needs to exchange data with another system.
+        </p>
+        <p>
+            Suitable for environments with a small number of systems, but becomes complex and hard to manage as the number of connections increases.
+        </p>
+        <p>Usually uses a RESTful server</p>
+    </div>
+</section>
+
+<section id="integration-platform">
+  <h3>Integration through an Integration Platform</h3>
+  <div style="font-size: 0.9em;">
+      <p>
+          Uses a centralized platform, such as an Enterprise Service Bus (ESB) or Integration Platform as a Service (iPaaS), to handle communication and data transformation between FHIR-enabled systems.
+      </p>
+      <p>
+          Provides a single point of coordination for message routing, protocol translation, and orchestration.
+      </p>
+  </div>
+</section>
+
+<section id="api-based">
+  <h3>API-based Integration</h3>
+  <div style="font-size: 0.9em;">
+      <p>
+          Systems expose their data and services through RESTful FHIR APIs.
+      </p>
+      <p>
+          Other systems consume these APIs to retrieve or modify healthcare data using standardized FHIR resources.
+      </p>
+  </div>
+</section>
+<section id="event-driven">
+  <h3>Event-driven Integration</h3>
+  <div style="font-size: 0.9em;">
+      <p>
+          Systems respond to events triggered in other systems, such as the creation or update of a resource.
+      </p>
+      <p>
+          Notifications are delivered using mechanisms like FHIR Subscriptions or external messaging protocols (e.g., Webhooks, Pub/Sub).
+      </p>
+  </div>
+</section>
+<section id="hybrid">
+  <h3>Hybrid Integration</h3>
+  <div style="font-size: 0.9em;">
+      <p>
+          Combines multiple integration strategies—such as API-based, event-driven, and legacy protocols—to address the diverse capabilities and requirements of different systems.
+      </p>
+  </div>
+</section>
+
+
  <section id="">
                 <h3>Design</h3>
                 <div style="font-size: 0.9em;">
@@ -198,43 +272,143 @@
 
 <!-- Vertical Slides: Tomcat Information -->
 <section>
-    <section>
-        <h2>Challenges</h2>
-        <p>The planification of the project was made trying to accomplish some specifications</p>
-        <div style="font-size: 0.8em;">
-            <ol>
-                <li>
-                    Must transfer the most number of variables possible to elaborate the SurPass
-                </li>
-                <li>
-                    Must be easy to develop
-                </li>
-            </ol>
-        </div>
-    </section>
+  <section>
+    <h2>Challenges</h2>
+    <p>The integration faced some challenges that were solved with more or less good results.</p>
+    <div style="font-size: 0.8em;">
+        <ol>
+            <li class="fragment">
+                Learning the standard, services, tools, and libraries to work with FHIR.
+            </li>
+            <li class="fragment">
+                Managing codification systems to comply with the SurPass IG.
+            </li>
+            <li class="fragment">
+              Managing pseudo-anonymization and re-identification.
+            </li>
+            <li class="fragment">
+                Securing the system.
+            </li>
+            <li class="fragment">
+              Testing the system properly.
+          </li>
+        </ol>
+    </div>
+</section>
+<section id="dealing-with-fhir">
+  <h3>Dealing with FHIR</h3>
+  <div style="font-size: 0.9em;">
+      <p class="">
+          Dealing with FHIR wasn't the biggest challenge. Nowadays, there are many resources available online and the official documentation is quite good.
+      </p>
+  </div>
+</section>
+
+<section id="codification-systems-1">
+  <h3>Codification Systems</h3>
+  <div style="font-size: 0.9em;">
+      <p class="">
+          We addressed this problem using a mixed approach. On the one hand, we added some necessary codifications directly within the Genes system. On the other hand, we mapped Genes' internal keys to standard codification systems using our application.
+      </p>
+      <p class="">
+          The application checks these codes and essentially acts as a conversion table.
+      </p>
+  </div>
+</section>
+
+<section id="pseudo-anonymization">
+  <h3>Pseudo-anonymization and Re-identification</h3>
+  <div style="font-size: 0.9em;">
+      <p class="">
+          To handle this, our middleware is responsible for encrypting and hashing certain internal business identifiers.
+      </p>
+  </div>
+</section>
+
+<section id="securing-everything">
+  <h3>Securing Everything</h3>
+  <div style="font-size: 0.9em;">
+      <p class="">
+          We adopted a security-by-design and multi-layered approach for developing the application. This includes data logging encryption, UI-API communication encryption, HTTPS, and a reverse proxy for external data transmission.
+      </p>
+  </div>
+</section>
+
+<section id="testing-everything">
+  <h3>Testing Everything</h3>
+  <div style="font-size: 0.9em;">
+      <p class="">
+          We initially used JUnit, and later transitioned to JSON schemas for validating FHIR resources. We also developed a custom testing framework to test the FHIR API using synthetic data.
+      </p>
+  </div>
+</section>
 
 
- <section id="">
-                <h3>The origins of the project</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                       The use case of the project was
-                    </p>
-                </div>
+
   </section>
- <section id="">
-                <h3>The structure of our system</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                       
-                    </p>
-                    <a href="" target="_blank">Final structure</a>
-                </div>
+
+
+
+  <!-- Vertical Slides: Tomcat Information -->
+<section>
+  <section>
+      <h2>System Architecture</h2>
+      <p>The planification of the project was made trying to accomplish some specifications</p>
+      <div style="font-size: 0.8em;">
+          <ol>
+              <li>
+                  Must transfer the most number of variables possible to elaborate the SurPass
+              </li>
+              <li>
+                  Must be easy to develop
+              </li>
+              <li>
+                Must use Genes app infrastructure
+            </li>
+          </ol>
+      </div>
+  </section>
+
+
+  
+  <section id="" >
+    <h3>Project Schemas</h3>
+    <div style="font-size: 0.9em;">
+        <p class="">
+          Now we are going to see some schemas following the <a href="https://en.wikipedia.org/wiki/C4_model" target="_blank">C4 model</a> from Simon Brown.
+        </p>
+        <p class="">
+          This kind of schemas are flexible and let us show you the general architecture.
+        </p>
+    </div>
+  </section>
+  <section id="" data-transition="zoom">
+    <div style="font-size: 0.9em;">
+      <small>
+        <p class="">
+          Here you have a general Diagram
+        </p>
+      </small>
+      <img src="./assets/imgs/fhirbi_c1_b.png" style="width: 75%;" />
+    </div>
+  </section>
+  <section id="" data-transition="zoom" >
+    <div style="font-size: 0.9em;">
+      <small>
+        <p class="">
+          Here some insights of the system
+        </p>
+      </small>
+      <img src="./assets/imgs/fhirbi_c2.png" style="width: 75%;" />
+    </div>
   </section>
 
 
 
-  </section>
+
+</section>
+
+
 
 
 

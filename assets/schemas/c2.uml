@@ -1,0 +1,43 @@
+@startuml
+skinparam packageStyle cloud
+title Container Diagram
+
+
+
+rectangle "Hospital" as hosp{
+rectangle "User Terminal \n    Browser" as term{
+:Clinician:
+
+}
+
+
+
+[          **Email System**\nsmtp email system used to deliver\nPasspor to the Patient] as [Email System]
+[               **Proxy**\nfor more secure external \ncommunication] as [Proxy]
+
+
+database "Genes Database" as db {
+}
+rectangle "Integration Layer" as intglay #99FF99{
+[    **SPA** \nAs User UI\nUsing Lit Library] as [spa]
+rectangle "Web Application" as webapp{
+[                           **API**\nIn charge of transform data to FHIR,\nanonimization, reidentification, etc.,\nWorks with Tomcat, Hapi Fhir and others] as [Application API]
+
+}
+
+}
+
+}
+cloud "SurPass Platform" {
+[Fhir Server]
+}
+
+[spa] <-d-> [Application API] : "Transmit user Interaction"
+db <-u-> [Application API]
+[Application API] <-d-> [Proxy]
+[Proxy] <-l-> [Fhir Server] : "https"
+[spa] <-r- webapp : "Delivers"
+[spa] -r-> term
+[Application API] -d-> [Email System]
+
+@enduml
