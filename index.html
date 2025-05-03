@@ -44,12 +44,12 @@
       <section>
         <h2>SurPass Integration</h2>
         <div style="font-size: 0.8em;">
-          <p>In this presentation series, we cover the integration of the Survivorship Passport in our hospital</p>
+          <p>In this presentation series, we will cover the integration of the Survivorship Passport in our hospital.</p>
         </div>
         <img src="./assets/imgs/hospital-la-fe.png" alt="FHIR logo" style="width: 30%;">
         <img src="./assets/imgs/PanCareSurPass.png" alt="FHIR logo" style="width: 20%;">
-      </section>
-
+    </section>
+    
      <!-- Diapositivas Verticales: Información del navegador -->
       <section>
         <!-- Diapositiva Padre -->
@@ -58,36 +58,33 @@
 
         <!-- Diapositivas Hijas (Verticales) -->
 
-<section>
-  <h3>Overview</h3>
-  <div style="font-size: 0.8em;">
-    <p>We will cover:</p>
-  </div>
-
-  <div style="font-size: 0.8em;">
-    <ul>
-      
-      <li class="fragment">
-       Integration Strategies
-      </li>
-      <li class="fragment">
-       Challenges
-      </li>
-      <li class="fragment">
-        System Architecture 
-       </li>
-      <li class="fragment">
-       Demo
-      </li>
-      <li class="fragment">
-       Lessons Learned
-      </li>
-    </ul>
-  </div>
-</section>
-
-      </section>
-
+        <section>
+          <h3>Overview</h3>
+          <div style="font-size: 0.8em;">
+            <p>We will cover:</p>
+          </div>
+        
+          <div style="font-size: 0.8em;">
+            <ul>
+              
+              <li class="fragment">
+                Integration Strategies
+              </li>
+              <li class="fragment">
+                Challenges
+              </li>
+              <li class="fragment">
+                System Architecture
+              </li>
+              <li class="fragment">
+                Demo
+              </li>
+              <li class="fragment">
+                Lessons Learned
+              </li>
+            </ul>
+          </div>
+        </section>
  
   </section>
       
@@ -97,20 +94,18 @@
 
 
 <section>
-<section id="">
-                <h3>Integration Estrategies</h3>
-                <div style="font-size: 0.9em;">
-                    <small>
-                      <p class="">
-                        To get a litle context, we briefly see these integration concepts
-                      </p>
-                    </small>
-                    <img src="./assets/imgs/integration_strat.png" style="width: 100%;" />
-                  
-                </div>
+
+  <section id="">
+    <h3>Integration Strategies</h3>
+    <div style="font-size: 0.9em;">
+      <small>
+        <p class="">
+          To give a little context, we will briefly review some integration concepts that we took into account and examine them in different ways.
+        </p>
+      </small>
+      <img src="./assets/imgs/integration_strat.png" style="width: 100%;" />
+    </div>
   </section>
-
-
   <section id="connection-architectures">
     <h3>Connection Architectures</h3>
     <div style="font-size: 0.9em;">
@@ -150,113 +145,12 @@
   <div style="font-size: 0.9em;">
       <ul>
           <li><strong>Custom Middleware App:</strong> Acts as a bridge between our internal EHR and the external FHIR server.</li>
-          <li><strong>Polling Mechanism:</strong> The middleware regularly queries the external FHIR API for new or updated data.</li>
           <li><strong>API-based Access:</strong> All data exchange follows the RESTful FHIR standard.</li>
           <li><strong>Manual Trigger:</strong> The request to check for data is typically initiated when the physician opens the app.</li>
       </ul>
   </div>
 </section>
 
-
-
-
-  <section id="point-to-point">
-    <h3>Point-to-Point Integration</h3>
-    <div style="font-size: 0.9em;">
-        <p>
-            Involves directly connecting each system that needs to exchange data with another system.
-        </p>
-        <p>
-            Suitable for environments with a small number of systems, but becomes complex and hard to manage as the number of connections increases.
-        </p>
-        <p>Usually uses a RESTful server</p>
-    </div>
-</section>
-
-<section id="integration-platform">
-  <h3>Integration through an Integration Platform</h3>
-  <div style="font-size: 0.9em;">
-      <p>
-          Uses a centralized platform, such as an Enterprise Service Bus (ESB) or Integration Platform as a Service (iPaaS), to handle communication and data transformation between FHIR-enabled systems.
-      </p>
-      <p>
-          Provides a single point of coordination for message routing, protocol translation, and orchestration.
-      </p>
-  </div>
-</section>
-
-<section id="api-based">
-  <h3>API-based Integration</h3>
-  <div style="font-size: 0.9em;">
-      <p>
-          Systems expose their data and services through RESTful FHIR APIs.
-      </p>
-      <p>
-          Other systems consume these APIs to retrieve or modify healthcare data using standardized FHIR resources.
-      </p>
-  </div>
-</section>
-<section id="event-driven">
-  <h3>Event-driven Integration</h3>
-  <div style="font-size: 0.9em;">
-      <p>
-          Systems respond to events triggered in other systems, such as the creation or update of a resource.
-      </p>
-      <p>
-          Notifications are delivered using mechanisms like FHIR Subscriptions or external messaging protocols (e.g., Webhooks, Pub/Sub).
-      </p>
-  </div>
-</section>
-<section id="hybrid">
-  <h3>Hybrid Integration</h3>
-  <div style="font-size: 0.9em;">
-      <p>
-          Combines multiple integration strategies—such as API-based, event-driven, and legacy protocols—to address the diverse capabilities and requirements of different systems.
-      </p>
-  </div>
-</section>
-
-
- <section id="">
-                <h3>Design</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                      The final design of the project
-                    </p>
-                </div>
-  </section>
- <section id="">
-                <h3>Main Architect Designs</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                      The main desyngs
-                    </p>
-                </div>
-  </section>
- <section id="">
-                <h3>Main Architect Designs</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                      The main desyngs
-                    </p>
-                </div>
-  </section>
- <section id="">
-                <h3>Selected Option</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                      The final option
-                    </p>
-                </div>
-  </section>
- <section id="">
-                <h3>The Internal components</h3>
-                <div style="font-size: 0.9em;">
-                    <p class="">
-                      The Internal design of the integration
-                    </p>
-                </div>
-  </section>
 
 
 
@@ -274,74 +168,76 @@
 <section>
   <section>
     <h2>Challenges</h2>
-    <p>The integration faced some challenges that were solved with more or less good results.</p>
+    <p>The integration faced some challenges that were solved with more or less successful results.</p>
     <div style="font-size: 0.8em;">
-        <ol>
-            <li class="fragment">
-                Learning the standard, services, tools, and libraries to work with FHIR.
-            </li>
-            <li class="fragment">
-                Managing codification systems to comply with the SurPass IG.
-            </li>
-            <li class="fragment">
-              Managing pseudo-anonymization and re-identification.
-            </li>
-            <li class="fragment">
-                Securing the system.
-            </li>
-            <li class="fragment">
-              Testing the system properly.
-          </li>
-        </ol>
+      <ol>
+        <li class="fragment">
+          Learning the standard, services, tools, and libraries to work with FHIR.
+        </li>
+        <li class="fragment">
+          Managing codification systems to comply with the SurPass IG.
+        </li>
+        <li class="fragment">
+          Managing pseudo-anonymization and re-identification.
+        </li>
+        <li class="fragment">
+          Securing the system.
+        </li>
+        <li class="fragment">
+          Testing the system properly.
+        </li>
+      </ol>
+      <img src="./assets/imgs/cropped-java-craftsman.png" style="width: 15%; float: right;" alt="">
+
     </div>
-</section>
-<section id="dealing-with-fhir">
-  <h3>Dealing with FHIR</h3>
-  <div style="font-size: 0.9em;">
+  </section>
+  <section id="dealing-with-fhir">
+    <h3>Dealing with FHIR</h3>
+    <div style="font-size: 0.9em;">
       <p class="">
-          Dealing with FHIR wasn't the biggest challenge. Nowadays, there are many resources available online and the official documentation is quite good.
+        Dealing with FHIR wasn't the biggest challenge. Nowadays, there are many resources available online, and the official documentation is quite good.
       </p>
-  </div>
-</section>
-
-<section id="codification-systems-1">
-  <h3>Codification Systems</h3>
-  <div style="font-size: 0.9em;">
+    </div>
+  </section>
+  
+  <section id="codification-systems-1">
+    <h3>Codification Systems</h3>
+    <div style="font-size: 0.9em;">
       <p class="">
-          We addressed this problem using a mixed approach. On the one hand, we added some necessary codifications directly within the Genes system. On the other hand, we mapped Genes' internal keys to standard codification systems using our application.
+        We addressed this problem using a mixed approach. On the one hand, we added some necessary codifications directly within the Genes system. On the other hand, we mapped Genes' internal keys to standard codification systems using our application.
       </p>
       <p class="">
-          The application checks these codes and essentially acts as a conversion table.
+        The application checks these codes and essentially acts as a conversion table.
       </p>
-  </div>
-</section>
-
-<section id="pseudo-anonymization">
-  <h3>Pseudo-anonymization and Re-identification</h3>
-  <div style="font-size: 0.9em;">
+    </div>
+  </section>
+  
+  <section id="pseudo-anonymization">
+    <h3>Pseudo-anonymization and Re-identification</h3>
+    <div style="font-size: 0.9em;">
       <p class="">
-          To handle this, our middleware is responsible for encrypting and hashing certain internal business identifiers.
+        To handle this, our middleware is responsible for encrypting and hashing certain internal business identifiers.
       </p>
-  </div>
-</section>
-
-<section id="securing-everything">
-  <h3>Securing Everything</h3>
-  <div style="font-size: 0.9em;">
+    </div>
+  </section>
+  
+  <section id="securing-everything">
+    <h3>Securing Everything</h3>
+    <div style="font-size: 0.9em;">
       <p class="">
-          We adopted a security-by-design and multi-layered approach for developing the application. This includes data logging encryption, UI-API communication encryption, HTTPS, and a reverse proxy for external data transmission.
+        We adopted a security-by-design and multi-layered approach for developing the application. This includes data logging encryption, UI-API communication encryption, HTTPS, and a reverse proxy for external data transmission.
       </p>
-  </div>
-</section>
-
-<section id="testing-everything">
-  <h3>Testing Everything</h3>
-  <div style="font-size: 0.9em;">
+    </div>
+  </section>
+  
+  <section id="testing-everything">
+    <h3>Testing Everything</h3>
+    <div style="font-size: 0.9em;">
       <p class="">
-          We initially used JUnit, and later transitioned to JSON schemas for validating FHIR resources. We also developed a custom testing framework to test the FHIR API using synthetic data.
+        We initially used JUnit and later transitioned to JSON schemas for validating FHIR resources. We also developed a custom testing framework to test the FHIR API using synthetic data.
       </p>
-  </div>
-</section>
+    </div>
+  </section>
 
 
 
@@ -352,57 +248,57 @@
   <!-- Vertical Slides: Tomcat Information -->
 <section>
   <section>
-      <h2>System Architecture</h2>
-      <p>The planification of the project was made trying to accomplish some specifications</p>
-      <div style="font-size: 0.8em;">
-          <ol>
-              <li>
-                  Must transfer the most number of variables possible to elaborate the SurPass
-              </li>
-              <li>
-                  Must be easy to develop
-              </li>
-              <li>
-                Must use Genes app infrastructure
-            </li>
-          </ol>
-      </div>
+    <h2>System Architecture</h2>
+    <p>The planning of the project was done trying to accomplish some specifications.</p>
+    <div style="font-size: 0.8em;">
+      <ol>
+        <li>
+          Must transfer the maximum number of variables possible to elaborate the SurPass.
+        </li>
+        <li>
+          Must be easy to develop.
+        </li>
+        <li>
+          Must use the Genes app infrastructure.
+        </li>
+      </ol>
+    </div>
+    <img src="./assets/imgs/Duke_Blueprint.png" style="width: 20%; float: right;" alt="">
+
   </section>
-
-
   
-  <section id="" >
+  
+  <section id="">
     <h3>Project Schemas</h3>
     <div style="font-size: 0.9em;">
-        <p class="">
-          Now we are going to see some schemas following the <a href="https://en.wikipedia.org/wiki/C4_model" target="_blank">C4 model</a> from Simon Brown.
-        </p>
-        <p class="">
-          This kind of schemas are flexible and let us show you the general architecture.
-        </p>
+      <p class="">
+        Now we are going to see some schemas following the <a href="https://en.wikipedia.org/wiki/C4_model" target="_blank">C4 model</a> by Simon Brown.
+      </p>
+      <p class="">
+        These kinds of schemas are flexible and let us show you the general architecture.
+      </p>
     </div>
   </section>
   <section id="" data-transition="zoom">
     <div style="font-size: 0.9em;">
       <small>
         <p class="">
-          Here you have a general Diagram
+          Here you have a general Diagram.
         </p>
       </small>
       <img src="./assets/imgs/fhirbi_c1_b.png" style="width: 75%;" />
     </div>
   </section>
-  <section id="" data-transition="zoom" >
+  <section id="" data-transition="zoom">
     <div style="font-size: 0.9em;">
       <small>
         <p class="">
-          Here some insights of the system
+          Here are some insights into the system.
         </p>
       </small>
       <img src="./assets/imgs/fhirbi_c2.png" style="width: 75%;" />
     </div>
-  </section>
-
+  </section>  
 
 
 
@@ -417,86 +313,72 @@
 
 <!-- Vertical Slides: Browser Information -->
 <section>
-    <section>
-      <h2>Miscellaneous and Other tools</h2>
-        <div style="font-size: 0.8em;">
-            <p>Tools and utilities that might help</p>
-        </div>
-    </section>
-<section >
-    <h3>Quick API testers</h3>
+  <section>
+    <h2>Demo</h2>
     <div style="font-size: 0.8em;">
+      <p>Now, we'll see a demonstration of the application.</p>
+      <img src="./assets/imgs/Java-Duke_learn.png" style="width: 20%; float: right;" alt="">
 
-        <ul >
-      <li class="">
-        <a href="https://www.postman.com/downloads/" target="_blank">
-        Postman:
-        </a> Most famous app
-      </li>
-      <li class="">
-        <a href="https://hoppscotch.io/" target="_blank">
-        Hoppscotch:
-        </a> Same as Postman but Open source
-      </li>
-      <li class="">
-        <a href="https://github.com/Huachao/vscode-restclient" target="_blank">
-        Rest client:
-        </a> Use it inside VS Code
-      </li>
-     <li class="">
-        <a href="https://github.com/karatelabs/karate" target="_blank">
-        Karate API Tester:
-        </a> Use it with Java and JUnit
-      </li>
-        </ul>
-		<img src="./assets/imgs/DukeTools.png" style="float: right; width: 25%;" />
     </div>
-</section>
-<section >
-    <h3>Quick Hapi Servers</h3>
+  </section>
+  <section>
+    <h2>Screenshots</h2>
     <div style="font-size: 0.8em;">
-
-        <ul >
-      <li class="">
-        <a href="https://github.com/hapifhir/hapi-fhir-jpaserver-starter" target="_blank">
-        HAPI FHIR JPA Server, Starter project:
-        </a> Easy to manage and deploy locally
-      </li>
-      <li class="">
-        <a href="https://hub.docker.com/r/hapiproject/hapi" target="_blank">
-        Dockerized Hapi Server:
-        </a> Same as before but inside docker container
-      </li>
-        </ul>
-		<img src="./assets/imgs/duke_docker.png" style="float: right; width: 25%;" />
+      <p>Here are some screenshots showcasing the application's interface.</p>
     </div>
-</section>
-<section >
-    <h3>Database Clients</h3>
+  </section>
+  <section>
+    <h2>Video</h2>
     <div style="font-size: 0.8em;">
+      <p>This video provides a walkthrough of the application in action.</p>
+      <img src="./assets/imgs/duke_video.png" style="width: 20%; float: right;" alt="">
 
-        <ul >
-      <li class="">
-        <a href="http://www.squirrelsql.org/" target="_blank">
-            SquirrelSQL
-        </a> Most used client by the team members
-      </li>
-        </ul>
-		<img src="./assets/imgs/duke-african-elephant-2.png" style="float: right; width: 25%;" />
     </div>
-</section>
-
-
-</section>
+  </section>
 
     </section>
 
+<!-- Vertical Slides: Browser Information -->
+<section>
+  <section>
+    <h2>Lessons Learned</h2>
+    
+    <div style="font-size: 0.8em;">
+      <ul>
+        <li class="fragment">
+          It is easy to work with FHIR.
+        </li>
+        <li class="fragment">
+          The final middleware is tightly coupled to the Genes system, perhaps too much.
+        </li>
+        <li class="fragment">
+          It is not easy to scale or transfer to other systems, so we will explore other solutions for future projects.
+        </li>
+        <li class="fragment">
+          Managing codification systems and testing is challenging.
+        </li>
+        <li class="fragment">
+          We are not particularly proficient in the agile working style and need to improve.
+        </li>
+      </ul>
+      <img src="./assets/imgs/java-duke-thinking-clipart.png" style="width: 20%; float: right;" alt="">
 
+    </div>
+
+    
+  </section>
+  
+
+  </section>
 
 
 
 			<section data-background="https://media.giphy.com/media/7LO7q5KcXawaQ/giphy.gif">
 				<h2>Fin!</h2>
+          <p>
+            Next, we'll see the <a target="_blank" href="https://llucbrell.github.io/surpass-stack/">application stack</a>!
+          </p>
+          
       </section>
  <section>
   <p>
