@@ -225,7 +225,8 @@
     <h3>Securing Everything</h3>
     <div style="font-size: 0.9em;">
       <p class="">
-        We adopted a security-by-design and multi-layered approach for developing the application. This includes data logging encryption, UI-API communication encryption, HTTPS, and a reverse proxy for external data transmission.
+        We adopted a security-by-design and multi-layered approach for developing the application. 
+        This includes data logging encryption, UI-API communication encryption, HTTPS, and a reverse proxy for external data transmission, following the instructions of the workpackage 3.4, privacy Impact Assessments (“PIAs”) and GDPR. 
       </p>
     </div>
   </section>
@@ -334,12 +335,109 @@
     
 </section>
   <section>
-    <h2>Screenshots</h2>
+    <h2>Detailed explanation</h2>
     <div style="font-size: 0.8em;">
       <p>Here are some screenshots showcasing the application's interface.</p>
     </div>
   </section>
   
+
+
+
+  <section>
+    <h2>Application State</h2>
+    <div style="font-size: 0.8em;">
+    <p>At this point the application is capable of sending data and retrieving the care plan in addition to the Survival passport.</p>
+  </div>
+  </section>
+
+<section>
+    <h2>Some actions:</h2>
+    <div style="font-size: 0.8em;">
+    <p>Import data from the db</p>
+    <p>Display the data for review</p>
+    <p>Send the data to the Cineca platform</p>
+    <p>Retrieve Passport and Care plan</p>
+  </div>
+</section>
+
+<section>
+  <h2>GENES</h2>
+  <div style="font-size: 0.8em;">
+    <p>The legacy application, where we can find our data.</p>
+  
+  </div>
+</section>
+
+<section>
+    <h3>PATIENT DATA IN HULAFE LOCAL SYSTEM</h3>
+    <div style="font-size: 0.8em;">
+    <img src="assets/imgs/genes_patient_in_system.jpg" alt="Patient Data Flow" style="width: 60%;">
+  
+  </div>
+</section>
+
+<section>
+  <h2>FHIRBILINA</h2>
+  <div style="font-size: 0.8em;">
+    <p>The middleware, extract data, transform and interact with FHIR SurPass Server.</p>
+  
+  </div>
+</section>
+
+<section>
+    <h3>LOG IN TO WEB APLICATION</h3>
+      <img src="assets/imgs/fhirbi_login.png" alt="Patient Data Flow" style="width: 60%;">
+</section>
+
+<section>
+    <h3>Extract patient data from the system</h3>
+      <img src="assets/imgs/fhirbi_import_patient.jpg" alt="Patient Data Flow" style="width: 60%;">
+</section>
+
+
+<section>
+  <h3>SELECT AND SEND DATA TO CINECA</h3>
+    <img src="assets/imgs/fhirbi_send_data.jpg" alt="Patient Data Flow" style="width: 60%;">
+</section>
+
+<section>
+    <h3>SELECT PATIEN TUMOR DATA</h3>
+    <img src="assets/imgs/fhirbi_tumor_data.jpg" alt="Patient Data Flow" style="width: 60%;">
+
+</section>
+
+<section>
+    <h2>DATA RETRIEVE FROM CINECA</h2>
+</section>
+
+<section>
+    <h3>PASSPORT AVAILABLE IN CINECA</h3>
+    <img src="assets/imgs/fhirbi_retrieve_passport.jpg" alt="Patient Data Flow" style="width: 40%;">
+
+</section>
+
+
+<section>
+    <h3>PDF VISUALIZATION, REIDENTIFICATION AND OPTION TO SEND TO PATIENT EMAIL</h3>
+    <img src="assets/imgs/fhirbi_passport_retrieve_visualization.jpg" alt="Patient Data Flow" style="width: 60%;">
+
+</section>
+
+<section>
+    <h3>BUTTON TO SAVE IN LOCAL SYSTEM</h3>
+     <p>/* THE BUTTON IS AT THE END OF THE TABLE SOWN IN PREVIOUS SLIDES */</p>
+     <img src="assets/imgs/fhirbi_save_data.jpg" alt="Patient Data Flow" style="width: 60%;">
+
+</section>
+
+<section>
+    <h3>FOLLOW UP RECOMENDATIONS SAVED CORRECTLY IN LOCAL SYSTEM</h3>
+    <img src="assets/imgs/genes_saved_followup.jpg" alt="Patient Data Flow" style="width: 60%;">
+
+</section>
+
+
 
     </section>
 
